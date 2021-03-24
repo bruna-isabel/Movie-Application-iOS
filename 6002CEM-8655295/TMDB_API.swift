@@ -7,7 +7,7 @@
 
 import Foundation
 
-class API {
+class MoviesAPI {
     
     private var dataTask: URLSessionDataTask?
 

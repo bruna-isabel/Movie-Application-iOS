@@ -9,32 +9,43 @@ import UIKit
 
 class MovieTableViewController: UITableViewController {
     
-    var movieAPI = API()
+    private var viewModel = MovieView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        movieAPI.fetchMovies { (movie) in
-            print(movie)
+        
+        loadMovies()
+        
+        }
+    
+    private func loadMovies() {
+        viewModel.fetchMoviesData { [weak self] in
+            self?.tableView.dataSource = self
+            self?.tableView.reloadData()
         }
     }
     
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    /*override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
-    }
+    }*/
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel.rowsInSection(section:section)
     }
 
-   /*
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return
-    }*/
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieTableViewCell
+        
+        let movie = viewModel.cellForRow(indexPath: indexPath)
+        cell.setCellValues(movie)
+        return cell
+    }
     
 
     /*

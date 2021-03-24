@@ -19,6 +19,7 @@
 		5AA642972603C70400C5A34F /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642962603C70400C5A34F /* MovieModel.swift */; };
 		5AA642AB260A514600C5A34F /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642AA260A514600C5A34F /* MovieTableViewCell.swift */; };
 		5AA642B6260A78B900C5A34F /* TMDB_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642B5260A78B900C5A34F /* TMDB_API.swift */; };
+		5AA642CC260B956D00C5A34F /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642CB260B956D00C5A34F /* MovieView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5AA642962603C70400C5A34F /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		5AA642AA260A514600C5A34F /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		5AA642B5260A78B900C5A34F /* TMDB_API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_API.swift; sourceTree = "<group>"; };
+		5AA642CB260B956D00C5A34F /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				5AA642962603C70400C5A34F /* MovieModel.swift */,
 				5AA642B5260A78B900C5A34F /* TMDB_API.swift */,
 				5AA642AA260A514600C5A34F /* MovieTableViewCell.swift */,
+				5AA642CB260B956D00C5A34F /* MovieView.swift */,
 			);
 			path = "6002CEM-8655295";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				5AA642602600E3BD00C5A34F /* ViewController.swift in Sources */,
 				5AA642AB260A514600C5A34F /* MovieTableViewCell.swift in Sources */,
 				5AA6425C2600E3BD00C5A34F /* AppDelegate.swift in Sources */,
+				5AA642CC260B956D00C5A34F /* MovieView.swift in Sources */,
 				5AA6425E2600E3BD00C5A34F /* SceneDelegate.swift in Sources */,
 				5AA642972603C70400C5A34F /* MovieModel.swift in Sources */,
 			);

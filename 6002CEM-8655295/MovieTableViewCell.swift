@@ -12,20 +12,51 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieSynopsis: UILabel!
     @IBOutlet var movieRating: UILabel!
-    @IBOutlet var movieGenre: UILabel!
-    @IBOutlet var moviePoster: UIImageView!
-
+    @IBOutlet var movieReleaseYear: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet var movieImage: UIImageView!
+    private var urlStringImage: String = " "
+    
+    //Put Movie Values
+    func setCellValues(_ movie:Movie) {
+        updateUIViews(title: movie.title, release_year: movie.release_year, rating: movie.rating, synopsis: movie.synopsis, image: movie.image)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    private func updateUIViews(title: String?, release_year: String?, rating: Double?, synopsis: String?, image: String?) {
+        
+        self.movieTitle.text = title
+        self.movieSynopsis.text = synopsis
+        self.movieRating.text = String(rating!)
+        self.movieReleaseYear.text = release_year
+        
+        //Each Movie has a diferent path for image. Variable is unwrapped.
+        let imageString = image!
+        urlStringImage = "https://image.tmdb.org/t/p/w300" + imageString
+        
+        //In case there's no image
+        guard let imageURL = URL(string: urlStringImage) else {
+            self.movieImage.image = UIImage(named: "noImageAvailable")
+            return
+        }
+        
+        //Clears out image before we download new one
+        self.movieImage.image = nil
+        
+        //Calls function that handles image request
+        getImageURL(url: imageURL)
     }
     
+    //Get Image URL from jSON
+    private func getImageURL(url: URL) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data!) {
+                    self.movieImage.image = image
+                }
+            }
+            
+        }.resume()
+    }
 
 }
