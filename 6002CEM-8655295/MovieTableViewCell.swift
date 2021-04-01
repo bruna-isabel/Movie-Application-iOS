@@ -13,8 +13,8 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var movieSynopsis: UILabel!
     @IBOutlet var movieRating: UILabel!
     @IBOutlet var movieReleaseYear: UILabel!
-    
     @IBOutlet var movieImage: UIImageView!
+    
     private var urlStringImage: String = " "
     
     //Put Movie Values
@@ -35,18 +35,16 @@ class MovieTableViewCell: UITableViewCell {
         
         //In case there's no image
         guard let imageURL = URL(string: urlStringImage) else {
-            self.movieImage.image = UIImage(named: "noImageAvailable")
+            self.movieImage.image = UIImage(named: "noImage")
             return
         }
-        
         //Clears out image before we download new one
         self.movieImage.image = nil
-        
         //Calls function that handles image request
         getImageURL(url: imageURL)
     }
     
-    //Get Image URL from jSON
+    //Get Image URL from jSON file
     private func getImageURL(url: URL) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             

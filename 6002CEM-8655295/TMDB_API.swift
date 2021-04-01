@@ -10,45 +10,40 @@ import Foundation
 class MoviesAPI {
     
     private var dataTask: URLSessionDataTask?
-
-     
+    
     func fetchMovies(completion: @escaping (Result<MovieList, Error>) -> Void){
         
-        let urlString = "https://api.themoviedb.org/3/movie/popular?api_key="
-        //our url string
+        let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=?"
         guard let url = URL(string: urlString) else { return } //avoid optionals
         
-        
-        print("Response Status code: HELLO")
         //requests data from api
         dataTask = URLSession.shared.dataTask(with: url)  { (data, response, error) in
-            
-            
+            //We get no response from API
             guard let response = response as? HTTPURLResponse else {
                 print("Empty Response")
                 return
             }
-            
-            
+            //Catches Error if something goes wrong
             do {
-                //Parse data
-                let jsonData = try JSONDecoder().decode(MovieList.self, from: data!)
-                
+                //Decodes our whole movie array. All the movies
+                let movieDataDecoded = try JSONDecoder().decode(MovieList.self, from: data!)
+                //Tells Swift that it's async operation.
                 DispatchQueue.main.async {
-                    completion(.success(jsonData))
+                    print(movieDataDecoded)
+                    completion(.success(movieDataDecoded))
                 }
-                
             } catch let error {
                 completion(.failure(error))
                 print(error.localizedDescription)
             }
-            
+        //Checks how response is doing
         print("Response status code: \(response.statusCode)")
             
         }
-        
         dataTask?.resume()
     }
+    
+    
 }
 
 

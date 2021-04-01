@@ -7,6 +7,10 @@
 
 import Foundation
 
+//All of structs are Decodable because we are decoding
+//JSON files with this data
+
+//Array of Movies
 struct MovieList: Decodable {
     let movies: [Movie]
     
@@ -23,6 +27,7 @@ struct Movie: Decodable {
     let synopsis: String?
     let image: String?
     
+    //Coding Keys from JSON file
     enum CodingKeys: String, CodingKey {
         case title
         case synopsis = "overview"
@@ -31,10 +36,3 @@ struct Movie: Decodable {
         case release_year = "release_date"
     }
 }
-
-struct MovieGenre: Decodable{
-    let name: String?
-}
-
-
-
