@@ -45,16 +45,15 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     //Get Image URL from jSON file
-    private func getImageURL(url: URL) {
+    func getImageURL(url: URL) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data!) {
+                    print(data)
                     self.movieImage.image = image
                 }
             }
-            
         }.resume()
     }
-
 }

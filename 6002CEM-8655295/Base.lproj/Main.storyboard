@@ -256,20 +256,20 @@
                                 <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Q0-vB-9Xg">
-                                <rect key="frame" x="20" y="384" width="69" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Q0-vB-9Xg">
+                                <rect key="frame" x="20" y="384" width="374" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKk-MO-kQO">
-                                <rect key="frame" x="20" y="318" width="49" height="21"/>
+                                <rect key="frame" x="20" y="318" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-Ci-DRM">
-                                <rect key="frame" x="360" y="289" width="34" height="21"/>
+                                <rect key="frame" x="294" y="318" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
@@ -278,19 +278,20 @@
                         <viewLayoutGuide key="safeArea" id="0TB-sh-fnM"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0TB-sh-fnM" firstAttribute="trailing" secondItem="xKk-MO-kQO" secondAttribute="trailing" constant="345" id="36W-HN-SKj"/>
+                            <constraint firstItem="0TB-sh-fnM" firstAttribute="trailing" secondItem="xKk-MO-kQO" secondAttribute="trailing" constant="294" id="36W-HN-SKj"/>
+                            <constraint firstItem="9Q0-vB-9Xg" firstAttribute="leading" secondItem="0TB-sh-fnM" secondAttribute="leading" constant="20" id="4Mn-iW-wrO"/>
                             <constraint firstItem="QbO-iD-FCj" firstAttribute="leading" secondItem="0TB-sh-fnM" secondAttribute="leading" id="5OF-lo-g69"/>
-                            <constraint firstItem="J2A-Ci-DRM" firstAttribute="top" secondItem="QbO-iD-FCj" secondAttribute="bottom" constant="15" id="5TV-ph-QgP"/>
+                            <constraint firstItem="J2A-Ci-DRM" firstAttribute="top" secondItem="QbO-iD-FCj" secondAttribute="bottom" constant="44" id="5TV-ph-QgP"/>
                             <constraint firstItem="QbO-iD-FCj" firstAttribute="top" secondItem="0TB-sh-fnM" secondAttribute="top" id="8KT-Ay-7sd"/>
                             <constraint firstItem="xKk-MO-kQO" firstAttribute="leading" secondItem="0TB-sh-fnM" secondAttribute="leading" constant="20" id="DUo-Ha-laa"/>
+                            <constraint firstItem="0TB-sh-fnM" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Q0-vB-9Xg" secondAttribute="bottom" constant="20" id="FOk-4y-v3u"/>
                             <constraint firstItem="xKk-MO-kQO" firstAttribute="top" secondItem="DLA-CT-A2v" secondAttribute="bottom" constant="10" id="FR2-p7-n9Y"/>
                             <constraint firstItem="DLA-CT-A2v" firstAttribute="top" secondItem="QbO-iD-FCj" secondAttribute="bottom" constant="10" id="Hsy-2E-beA"/>
-                            <constraint firstItem="J2A-Ci-DRM" firstAttribute="leading" secondItem="0TB-sh-fnM" secondAttribute="leading" constant="360" id="Kk5-Xn-oTA"/>
-                            <constraint firstItem="9Q0-vB-9Xg" firstAttribute="leading" secondItem="0TB-sh-fnM" secondAttribute="leading" constant="20" id="RbV-OD-RK2"/>
+                            <constraint firstItem="J2A-Ci-DRM" firstAttribute="leading" secondItem="0TB-sh-fnM" secondAttribute="leading" constant="294" id="Kk5-Xn-oTA"/>
                             <constraint firstItem="0TB-sh-fnM" firstAttribute="trailing" secondItem="J2A-Ci-DRM" secondAttribute="trailing" constant="20" id="VQJ-jg-cZf"/>
-                            <constraint firstItem="0TB-sh-fnM" firstAttribute="trailing" secondItem="9Q0-vB-9Xg" secondAttribute="trailing" constant="325" id="X7Z-O1-Rzk"/>
                             <constraint firstItem="0TB-sh-fnM" firstAttribute="trailing" secondItem="QbO-iD-FCj" secondAttribute="trailing" id="XNm-dG-Qkh"/>
                             <constraint firstItem="9Q0-vB-9Xg" firstAttribute="top" secondItem="xKk-MO-kQO" secondAttribute="bottom" constant="45" id="ZR9-Zb-xfv"/>
+                            <constraint firstItem="0TB-sh-fnM" firstAttribute="trailing" secondItem="9Q0-vB-9Xg" secondAttribute="trailing" priority="900" constant="20" id="gCA-oG-C4s"/>
                             <constraint firstItem="DLA-CT-A2v" firstAttribute="leading" secondItem="0TB-sh-fnM" secondAttribute="leading" constant="20" id="k0D-7H-K4i"/>
                             <constraint firstItem="0TB-sh-fnM" firstAttribute="trailing" secondItem="DLA-CT-A2v" secondAttribute="trailing" constant="20" id="uUV-b1-IPf"/>
                         </constraints>
@@ -298,10 +299,10 @@
                     <navigationItem key="navigationItem" id="ipH-wm-Kpi"/>
                     <connections>
                         <outlet property="movieImage" destination="QbO-iD-FCj" id="09K-0J-tLC"/>
-                        <outlet property="movieRating" destination="xKk-MO-kQO" id="rcm-DR-qbS"/>
+                        <outlet property="movieRating" destination="xKk-MO-kQO" id="eXF-jZ-fTP"/>
+                        <outlet property="movieReleaseYear" destination="J2A-Ci-DRM" id="Fyh-N3-sPs"/>
                         <outlet property="movieSynopsis" destination="9Q0-vB-9Xg" id="U7L-9H-4uP"/>
                         <outlet property="movieTitle" destination="DLA-CT-A2v" id="dw9-ng-82z"/>
-                        <outlet property="movieYear" destination="J2A-Ci-DRM" id="8d5-FY-v0w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9C-XK-7yP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
