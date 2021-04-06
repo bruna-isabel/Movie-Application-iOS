@@ -13,7 +13,7 @@ class MoviesAPI {
     
     func fetchMovies(completion: @escaping (Result<MovieList, Error>) -> Void){
         
-        let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=?"
+        let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=5ce1bd163d84a2519cb092ebaf88a207"
         guard let url = URL(string: urlString) else { return } //avoid optionals
         
         //requests data from api

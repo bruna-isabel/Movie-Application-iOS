@@ -115,7 +115,6 @@
                         <outlet property="errorLabel" destination="j7L-tE-dGm" id="gCq-Qf-VKk"/>
                         <outlet property="loginButton" destination="8kQ-b9-I91" id="E77-1j-viK"/>
                         <outlet property="passwordField" destination="zUu-Y3-mPs" id="bkt-5j-Z7V"/>
-                        <outlet property="usernameField" destination="34k-X0-PDl" id="pTx-AU-p73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -125,7 +124,7 @@
         <!--Home View Controller-->
         <scene sceneID="Pnx-B6-Af8">
             <objects>
-                <viewController id="K4L-LS-epP" customClass="HomeViewController" customModule="_002CEM_8655295" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="K4L-LS-epP" customClass="HomeViewController" customModule="_002CEM_8655295" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bIK-kN-5fK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -385,7 +384,7 @@
                                         </constraints>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
-                                            <action selector="signUpTappedWith_sender:" destination="07n-WS-daE" eventType="touchUpInside" id="SiU-hx-Hji"/>
+                                            <action selector="signUpTapped:" destination="07n-WS-daE" eventType="touchUpInside" id="aoo-Uj-fDh"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBP-Wg-aqD">
