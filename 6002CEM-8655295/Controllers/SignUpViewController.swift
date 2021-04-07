@@ -121,11 +121,22 @@ class SignUpViewController: UIViewController {
     
     func transitionToHome() {
         
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        /*let movieTableController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.movieTableController) as? MovieTableViewController
         
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
+        movieTableController!.dismiss(animated: true, completion: nil)
         
+        //Presents new navigation controller
+        let navController = UINavigationController(rootViewController: movieTableController!)
+        
+        let tabViewController = UITabBarController(rootViewController: movieTableController)
+        
+        //Avoids navigation controllers to stack up together
+        navController.dismiss(animated: true, completion: nil)
+        self.view.window?.rootViewController = tabViewController*/
+        
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
+        self.view.window?.rootViewController = viewController
+        self.view.window?.makeKeyAndVisible()
     }
 
 }

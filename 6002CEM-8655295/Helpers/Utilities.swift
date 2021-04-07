@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
 class Utilities {
     
-
     static func passwordValidation(_ password: String) -> Bool {
     
         let passwordRegEx = "^(?=.*[a-z])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}"
@@ -24,5 +25,4 @@ class Utilities {
         
         return emailValid.evaluate(with: email)
     }
-
 }

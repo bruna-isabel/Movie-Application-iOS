@@ -120,6 +120,25 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		5A461582261E03F50039E874 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5AA6425B2600E3BD00C5A34F /* AppDelegate.swift */,
+				5AA6425D2600E3BD00C5A34F /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5A461586261E04290039E874 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5AA642612600E3BD00C5A34F /* Main.storyboard */,
+				5AA642642600E3C200C5A34F /* Assets.xcassets */,
+				5AA642662600E3C200C5A34F /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5AA6424F2600E3BD00C5A34F = {
 			isa = PBXGroup;
 			children = (
@@ -145,13 +164,9 @@
 		5AA6425A2600E3BD00C5A34F /* 6002CEM-8655295 */ = {
 			isa = PBXGroup;
 			children = (
+				5A461582261E03F50039E874 /* Resources */,
 				5A461574261CB1CE0039E874 /* Helpers */,
-				5AA6425B2600E3BD00C5A34F /* AppDelegate.swift */,
-				5AA6425D2600E3BD00C5A34F /* SceneDelegate.swift */,
-				5AA642F22618DEC900C5A34F /* View Controllers */,
-				5AA642612600E3BD00C5A34F /* Main.storyboard */,
-				5AA642642600E3C200C5A34F /* Assets.xcassets */,
-				5AA642662600E3C200C5A34F /* LaunchScreen.storyboard */,
+				5AA642F22618DEC900C5A34F /* Controllers */,
 				5AA642692600E3C200C5A34F /* Info.plist */,
 				5AA642962603C70400C5A34F /* MovieModel.swift */,
 				5AA642B5260A78B900C5A34F /* TMDB_API.swift */,
@@ -179,7 +194,7 @@
 			path = "6002CEM-8655295UITests";
 			sourceTree = "<group>";
 		};
-		5AA642F22618DEC900C5A34F /* View Controllers */ = {
+		5AA642F22618DEC900C5A34F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				5AA6425F2600E3BD00C5A34F /* LoginViewController.swift */,
@@ -188,8 +203,9 @@
 				5AA642E42618DE9900C5A34F /* SignUpViewController.swift */,
 				5AA642ED2618DEB300C5A34F /* HomeViewController.swift */,
 				5AA642F92619E4C800C5A34F /* InitialViewController.swift */,
+				5A461586261E04290039E874 /* Views */,
 			);
-			path = "View Controllers";
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		D77B891BAA94972C42D5C4AA /* Pods */ = {
