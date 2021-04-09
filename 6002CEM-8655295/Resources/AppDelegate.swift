@@ -10,11 +10,36 @@ import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         FirebaseApp.configure()
+        
+        //Handles User authorization method
+        
+        //Auth.auth().addStateDidChangeListener { auth, user in
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if Auth.auth().currentUser != nil {
+            //Shows App
+            
+            print("User is logged In")
+            window = UIWindow(frame: UIScreen.main.bounds)
+
+            /*let controller = storyboard.instantiateViewController(identifier: "mainTabBarController") as! UITabBarController
+            self.view.window!.rootViewController = controller
+            self.view.window?.makeKeyAndVisible()*/
+            
+        } else {
+            print("User is logged out")
+            //Shows Initial View
+            /*let controller = storyboard.instantiateViewController(identifier: "initialViewController") as! InitialViewController
+            self.view.window!.rootViewController = controller
+            self.view.window?.makeKeyAndVisible()*/
+            
+        }
         // Override point for customization after application launch.
         return true
     }

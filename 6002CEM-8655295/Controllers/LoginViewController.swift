@@ -62,20 +62,11 @@ class LoginViewController: UIViewController {
                     
                 } else {
                     
-                    /*//User signed in successfully
-                    let movieTableController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.movieTableController) as? MovieTableViewController
-                    movieTableController!.dismiss(animated: true, completion: nil)
-                    
-                    //Presents new navigation controller
-                    let navController = UITabController(rootViewController: movieTableController!)
-                    
-                    //Avoids navigation controllers to stack up together
-                    navController.dismiss(animated: true, completion: nil)
-                    self.view.window?.rootViewController = navController*/
-                    
+                    print("User successfully logged in")
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
                     self.view.window?.rootViewController = viewController
                     self.view.window?.makeKeyAndVisible()
+                    self.dismiss(animated: false, completion: nil)
                 }
             }
             

@@ -97,7 +97,7 @@ class SignUpViewController: UIViewController {
                     
                     //Stores firstname and last name of user
                     db.collection("users").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": result!.user.uid ]) { (error) in
-                    
+                        
                         //If error occurs
                         if error != nil {
                         
@@ -106,9 +106,9 @@ class SignUpViewController: UIViewController {
                         
                         }
                     }
-                    
+
                     //Moves to Home screen
-                    self.transitionToHome()
+                    //self.transitionToHome()
                 }
             }
         }
@@ -120,19 +120,6 @@ class SignUpViewController: UIViewController {
     }
     
     func transitionToHome() {
-        
-        /*let movieTableController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.movieTableController) as? MovieTableViewController
-        
-        movieTableController!.dismiss(animated: true, completion: nil)
-        
-        //Presents new navigation controller
-        let navController = UINavigationController(rootViewController: movieTableController!)
-        
-        let tabViewController = UITabBarController(rootViewController: movieTableController)
-        
-        //Avoids navigation controllers to stack up together
-        navController.dismiss(animated: true, completion: nil)
-        self.view.window?.rootViewController = tabViewController*/
         
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
         self.view.window?.rootViewController = viewController

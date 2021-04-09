@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		0A4465B556777B2CFCFAA3FD /* Pods_6002CEM_8655295.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC1AFA841196F05CB97EB7A /* Pods_6002CEM_8655295.framework */; };
 		5A02403B261B80D500441429 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A02403A261B80D400441429 /* GoogleService-Info.plist */; };
+		5A10572A2620D4C6005A58D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1057292620D4C6005A58D6 /* SceneDelegate.swift */; };
 		5A461576261CB1E40039E874 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A461575261CB1E40039E874 /* Utilities.swift */; };
 		5A46157B261CBC930039E874 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46157A261CBC930039E874 /* Constants.swift */; };
+		5A46158B261F48550039E874 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46158A261F48550039E874 /* MyAccountViewController.swift */; };
 		5AA6425C2600E3BD00C5A34F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA6425B2600E3BD00C5A34F /* AppDelegate.swift */; };
-		5AA6425E2600E3BD00C5A34F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA6425D2600E3BD00C5A34F /* SceneDelegate.swift */; };
 		5AA642602600E3BD00C5A34F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA6425F2600E3BD00C5A34F /* LoginViewController.swift */; };
 		5AA642632600E3BD00C5A34F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AA642612600E3BD00C5A34F /* Main.storyboard */; };
 		5AA642652600E3C200C5A34F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AA642642600E3C200C5A34F /* Assets.xcassets */; };
@@ -25,7 +26,6 @@
 		5AA642B6260A78B900C5A34F /* TMDB_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642B5260A78B900C5A34F /* TMDB_API.swift */; };
 		5AA642D1260E29EA00C5A34F /* IndividualMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642D0260E29E900C5A34F /* IndividualMovieVC.swift */; };
 		5AA642E52618DE9A00C5A34F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642E42618DE9900C5A34F /* SignUpViewController.swift */; };
-		5AA642EE2618DEB300C5A34F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642ED2618DEB300C5A34F /* HomeViewController.swift */; };
 		5AA642FA2619E4C800C5A34F /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA642F92619E4C800C5A34F /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,16 +50,17 @@
 		0DC1AFA841196F05CB97EB7A /* Pods_6002CEM_8655295.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_6002CEM_8655295.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB5BFCF073625B23E8C8AEC /* Pods-6002CEM-8655295.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-6002CEM-8655295.debug.xcconfig"; path = "Target Support Files/Pods-6002CEM-8655295/Pods-6002CEM-8655295.debug.xcconfig"; sourceTree = "<group>"; };
 		5A02403A261B80D400441429 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A1057292620D4C6005A58D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5A1057362620D680005A58D6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A461575261CB1E40039E874 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5A46157A261CBC930039E874 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5A46158A261F48550039E874 /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		5AA642582600E3BD00C5A34F /* 6002CEM-8655295.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6002CEM-8655295.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA6425B2600E3BD00C5A34F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5AA6425D2600E3BD00C5A34F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5AA6425F2600E3BD00C5A34F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5AA642622600E3BD00C5A34F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AA642642600E3C200C5A34F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AA642672600E3C200C5A34F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5AA642692600E3C200C5A34F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AA6426E2600E3C200C5A34F /* 6002CEM-8655295Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "6002CEM-8655295Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA642722600E3C200C5A34F /* _002CEM_8655295Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _002CEM_8655295Tests.swift; sourceTree = "<group>"; };
 		5AA642742600E3C200C5A34F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		5AA642B5260A78B900C5A34F /* TMDB_API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_API.swift; sourceTree = "<group>"; };
 		5AA642D0260E29E900C5A34F /* IndividualMovieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualMovieVC.swift; sourceTree = "<group>"; };
 		5AA642E42618DE9900C5A34F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		5AA642ED2618DEB300C5A34F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5AA642F92619E4C800C5A34F /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		E91286543156207171D13593 /* Pods-6002CEM-8655295.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-6002CEM-8655295.release.xcconfig"; path = "Target Support Files/Pods-6002CEM-8655295/Pods-6002CEM-8655295.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,8 +123,8 @@
 		5A461582261E03F50039E874 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A1057292620D4C6005A58D6 /* SceneDelegate.swift */,
 				5AA6425B2600E3BD00C5A34F /* AppDelegate.swift */,
-				5AA6425D2600E3BD00C5A34F /* SceneDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -167,11 +167,11 @@
 				5A461582261E03F50039E874 /* Resources */,
 				5A461574261CB1CE0039E874 /* Helpers */,
 				5AA642F22618DEC900C5A34F /* Controllers */,
-				5AA642692600E3C200C5A34F /* Info.plist */,
 				5AA642962603C70400C5A34F /* MovieModel.swift */,
 				5AA642B5260A78B900C5A34F /* TMDB_API.swift */,
 				5AA642AA260A514600C5A34F /* MovieTableViewCell.swift */,
 				5A02403A261B80D400441429 /* GoogleService-Info.plist */,
+				5A1057362620D680005A58D6 /* Info.plist */,
 			);
 			path = "6002CEM-8655295";
 			sourceTree = "<group>";
@@ -201,8 +201,8 @@
 				5AA6428E2603C57300C5A34F /* MovieTableViewController.swift */,
 				5AA642D0260E29E900C5A34F /* IndividualMovieVC.swift */,
 				5AA642E42618DE9900C5A34F /* SignUpViewController.swift */,
-				5AA642ED2618DEB300C5A34F /* HomeViewController.swift */,
 				5AA642F92619E4C800C5A34F /* InitialViewController.swift */,
+				5A46158A261F48550039E874 /* MyAccountViewController.swift */,
 				5A461586261E04290039E874 /* Views */,
 			);
 			path = Controllers;
@@ -400,8 +400,8 @@
 				5AA6425C2600E3BD00C5A34F /* AppDelegate.swift in Sources */,
 				5A461576261CB1E40039E874 /* Utilities.swift in Sources */,
 				5A46157B261CBC930039E874 /* Constants.swift in Sources */,
-				5AA642EE2618DEB300C5A34F /* HomeViewController.swift in Sources */,
-				5AA6425E2600E3BD00C5A34F /* SceneDelegate.swift in Sources */,
+				5A10572A2620D4C6005A58D6 /* SceneDelegate.swift in Sources */,
+				5A46158B261F48550039E874 /* MyAccountViewController.swift in Sources */,
 				5AA642E52618DE9A00C5A34F /* SignUpViewController.swift in Sources */,
 				5AA642D1260E29EA00C5A34F /* IndividualMovieVC.swift in Sources */,
 				5AA642972603C70400C5A34F /* MovieModel.swift in Sources */,

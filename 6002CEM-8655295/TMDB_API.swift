@@ -29,7 +29,7 @@ class MoviesAPI {
                 let movieDataDecoded = try JSONDecoder().decode(MovieList.self, from: data!)
                 //Tells Swift that it's async operation.
                 DispatchQueue.main.async {
-                    print(movieDataDecoded)
+                    //print(movieDataDecoded)
                     completion(.success(movieDataDecoded))
                 }
             } catch let error {

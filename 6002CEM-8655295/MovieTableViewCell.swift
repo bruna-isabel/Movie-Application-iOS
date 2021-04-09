@@ -50,7 +50,6 @@ class MovieTableViewCell: UITableViewCell {
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data!) {
-                    print(data)
                     self.movieImage.image = image
                 }
             }
