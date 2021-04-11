@@ -167,6 +167,7 @@
 				5A461582261E03F50039E874 /* Resources */,
 				5A461574261CB1CE0039E874 /* Helpers */,
 				5AA642F22618DEC900C5A34F /* Controllers */,
+				5A461586261E04290039E874 /* Views */,
 				5AA642962603C70400C5A34F /* MovieModel.swift */,
 				5AA642B5260A78B900C5A34F /* TMDB_API.swift */,
 				5AA642AA260A514600C5A34F /* MovieTableViewCell.swift */,
@@ -203,7 +204,6 @@
 				5AA642E42618DE9900C5A34F /* SignUpViewController.swift */,
 				5AA642F92619E4C800C5A34F /* InitialViewController.swift */,
 				5A46158A261F48550039E874 /* MyAccountViewController.swift */,
-				5A461586261E04290039E874 /* Views */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
