@@ -6,7 +6,11 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseStorage
+import FirebaseDatabase
 
 
 class MyAccountViewController: UIViewController {
@@ -19,18 +23,22 @@ class MyAccountViewController: UIViewController {
     
     var window: UIWindow!
     
+    //variables
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if Auth.auth().currentUser?.uid == nil {
+            logoutUser()
+                }
     }
-    
     
     @IBAction func uploadImageButton(_ sender: Any) {
         showImagePickerActionSheet()
 
     }
     @IBAction func saveDetailsTapped(_ sender: Any) {
-        //Saves Image in DB
+        saveChanges()
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
@@ -46,6 +54,9 @@ class MyAccountViewController: UIViewController {
         }
     }
     
+    
+    // Logouts User //
+    
     func logoutUser() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: "initialViewController") as! InitialViewController
@@ -53,16 +64,94 @@ class MyAccountViewController: UIViewController {
         self.view.window?.makeKeyAndVisible()
         
         }
+    
+    // Uploading Images to Firebase //
+    // Returns url string to image
+    func uploadUserImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->()) ) {
+        
+        //checks if user is currently authenticated
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        //reference to each users id storage
+        let storageRef = Storage.storage().reference().child("profile_images/\(uid)/\(image)")
+        print(storageRef)
+        
+        //turns UIImage into jpeg
+        guard let imageData = image.jpegData(compressionQuality: 0.75) else {return}
+        
+        //defines metadata
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        storageRef.putData(imageData, metadata: metaData) { metaData, error in
+            
+            if error == nil || metaData != nil {
+                storageRef.downloadURL { (url, error) in
+                    guard let url = url , error == nil else {
+                        return
+                    }
+                    
+                    let urlString = url.absoluteString
+                    print("Download Url: \(urlString)")
+                    self.saveProfile(profileImageURL: urlString)
+                }
+            }
+        }
+    }
+    
+    func saveProfile(profileImageURL: String) {
+        
+        
+        let uid = Auth.auth().currentUser?.uid
+        let db = Firestore.firestore()
+        var docID = ""
+        
+        //Get to document id first
+        
+        db.collection("users").whereField("uid", isEqualTo: uid!).getDocuments(completion: {  (documentSnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                docID = (documentSnapshot?.documents[0].documentID)!
+                db.collection("users").document(docID).updateData(["profile_image": profileImageURL]) { (error) in
+                    
+                    //If error occurs
+                    if error != nil {
+                    
+                    //Shows error message for now
+                        print("ERROR UPDATING PROFILE IMAGE:  \(String(describing: error?.localizedDescription))")
+                    }
+    
+                    print("User successfully created")
+                }
+            }
+        })
+    }
+    
+    func saveChanges() {
+        
+        //Saves Image in DB
+        guard let userImage = userImage.image else {return}
+        
+        self.uploadUserImage(userImage) { url in
+            if url != nil {
+                print( "image Successfully upload to firebase")
+            } else {
+            // Error unable to upload profile image
+                print("Enabled to upload profile pic")
+            }
+        }
+    }
 }
+
 
 extension MyAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
     func showImagePickerActionSheet() {
         
+        //Action Sheet
         let alert = UIAlertController(title: "Choose your prefered method", message: nil, preferredStyle: .actionSheet)
         
-            
         alert.addAction(UIAlertAction(title: "Choose From Library", style: .default) { (action) in
             self.showImagePicker(sourceType: .photoLibrary)
         })
@@ -90,6 +179,7 @@ extension MyAccountViewController: UIImagePickerControllerDelegate, UINavigation
     }
     
     func showImagePicker(sourceType: UIImagePickerController.SourceType) {
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         //can edit image before choosing it
@@ -105,7 +195,11 @@ extension MyAccountViewController: UIImagePickerControllerDelegate, UINavigation
             userImage.image = editedImage
         } else if let  originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             userImage.image = originalImage
-        dismiss(animated: true, completion: nil)
         }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

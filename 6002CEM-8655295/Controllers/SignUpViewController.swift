@@ -95,8 +95,8 @@ class SignUpViewController: UIViewController {
                     //Our database
                     let db = Firestore.firestore()
                     
-                    //Stores firstname and last name of user
-                    db.collection("users").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": result!.user.uid ]) { (error) in
+                    //Stores firstname, last name of user and pic 
+                    db.collection("users").addDocument(data: ["firstname": firstName, "lastname": lastName, "profile_image": "", "uid": result!.user.uid ]) { (error) in
                         
                         //If error occurs
                         if error != nil {
@@ -105,10 +105,17 @@ class SignUpViewController: UIViewController {
                         self.errorMessages("ERROR SAVING USER DATA")
                         
                         }
+                        
+                        print("User successfully created")
+                        
+                        //Transitions to home 
+                        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
+                        self.view.window?.rootViewController = viewController
+                        self.view.window?.makeKeyAndVisible()
+                        self.dismiss(animated: true, completion: nil)
                     }
-
-                    //Moves to Home screen
-                    //self.transitionToHome()
+                    
+                   
                 }
             }
         }
@@ -117,13 +124,6 @@ class SignUpViewController: UIViewController {
     func errorMessages(_ message: String) {
         errorLabel.text = message
         errorLabel.alpha = 1
-    }
-    
-    func transitionToHome() {
-        
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
-        self.view.window?.rootViewController = viewController
-        self.view.window?.makeKeyAndVisible()
     }
 
 }
