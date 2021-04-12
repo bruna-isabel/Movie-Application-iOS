@@ -83,6 +83,7 @@ class MyAccountViewController: UIViewController {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         
+        //downloads url
         storageRef.putData(imageData, metadata: metaData) { metaData, error in
             
             if error == nil || metaData != nil {
@@ -93,27 +94,30 @@ class MyAccountViewController: UIViewController {
                     
                     let urlString = url.absoluteString
                     print("Download Url: \(urlString)")
+                    //saves profileimageurl
                     self.saveProfile(profileImageURL: urlString)
                 }
             }
         }
     }
     
+    // Saves user profile into Firebase
     func saveProfile(profileImageURL: String) {
         
-        
         let uid = Auth.auth().currentUser?.uid
-        let db = Firestore.firestore()
         var docID = ""
         
         //Get to document id first
-        
         db.collection("users").whereField("uid", isEqualTo: uid!).getDocuments(completion: {  (documentSnapshot, error) in
             if let error = error {
+                
                 print("Error getting documents: \(error)")
+                
             } else {
+                
                 docID = (documentSnapshot?.documents[0].documentID)!
-                db.collection("users").document(docID).updateData(["profile_image": profileImageURL]) { (error) in
+                //Updates profile image in firebase database
+                self.db.collection("users").document(docID).updateData(["profile_image": profileImageURL]) { (error) in
                     
                     //If error occurs
                     if error != nil {
@@ -122,7 +126,7 @@ class MyAccountViewController: UIViewController {
                         print("ERROR UPDATING PROFILE IMAGE:  \(String(describing: error?.localizedDescription))")
                     }
     
-                    print("User successfully created")
+                    print("Photo successfully updated")
                 }
             }
         })
@@ -138,7 +142,7 @@ class MyAccountViewController: UIViewController {
                 print( "image Successfully upload to firebase")
             } else {
             // Error unable to upload profile image
-                print("Enabled to upload profile pic")
+                print("Unable to upload profile pic.")
             }
         }
     }

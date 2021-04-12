@@ -105,7 +105,6 @@ class SignUpViewController: UIViewController {
                         self.errorMessages("ERROR SAVING USER DATA")
                         
                         }
-                        
                         print("User successfully created")
                         
                         //Transitions to home 

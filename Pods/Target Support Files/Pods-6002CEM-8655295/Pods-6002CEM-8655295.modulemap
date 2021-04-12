@@ -1,0 +1,6 @@
+framework module Pods_6002CEM_8655295 {
+  umbrella header "Pods-6002CEM-8655295-umbrella.h"
+
+  export *
+  module * { export * }
+}
