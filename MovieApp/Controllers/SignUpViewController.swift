@@ -41,7 +41,7 @@ class SignUpViewController: UIViewController {
         let emailCleaned = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         //Checks if email is in the right format
-        if Utilities.emailValidation(emailCleaned) == false {
+        if Utilities().emailValidation(emailCleaned) == false {
             
             return "Your email is in the wrong format."
         }
@@ -52,7 +52,7 @@ class SignUpViewController: UIViewController {
         let passwordCleaned = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         //Checks if password is in right format
-        if Utilities.passwordValidation(passwordCleaned) == false {
+        if Utilities().passwordValidation(passwordCleaned) == false {
             
             return "Your password should contain at least 8 characters, a special character and a number. Please try again"
         }

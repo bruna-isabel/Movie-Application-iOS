@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             print("User is logged out")
             //Shows Initial View
-            let controller = storyboard.instantiateViewController(identifier: "initialViewController") as! InitialViewController
+            let controller = storyboard.instantiateViewController(identifier: "LoginNavigationController") as! UINavigationController
             self.window!.rootViewController = controller
             self.window?.makeKeyAndVisible()
             

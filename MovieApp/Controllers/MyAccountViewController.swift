@@ -39,6 +39,13 @@ class MyAccountViewController: UIViewController {
     }
     @IBAction func saveDetailsTapped(_ sender: Any) {
         saveChanges()
+        
+        let alertController = UIAlertController(title: nil, message: "Photo was successfully updated!", preferredStyle: .alert)
+
+        let understoodAction = UIAlertAction(title: "Understood!", style: .default, handler: { (alert: UIAlertAction!) in
+        })
+        alertController.addAction(understoodAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
@@ -49,7 +56,7 @@ class MyAccountViewController: UIViewController {
                 logoutUser()
             }
             catch {
-                print("Cant logout user")
+                print("Can't logout user")
             }
         }
     }
@@ -59,7 +66,7 @@ class MyAccountViewController: UIViewController {
     
     func logoutUser() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: "initialViewController") as! InitialViewController
+        let controller = storyboard.instantiateViewController(identifier: "LoginNavigationController") as! UINavigationController
         self.view.window!.rootViewController = controller
         self.view.window?.makeKeyAndVisible()
         
@@ -115,19 +122,23 @@ class MyAccountViewController: UIViewController {
                 
             } else {
                 
-                docID = (documentSnapshot?.documents[0].documentID)!
-                //Updates profile image in firebase database
-                self.db.collection("users").document(docID).updateData(["profile_image": profileImageURL]) { (error) in
-                    
-                    //If error occurs
-                    if error != nil {
-                    
-                    //Shows error message for now
-                        print("ERROR UPDATING PROFILE IMAGE:  \(String(describing: error?.localizedDescription))")
+                for document in documentSnapshot!.documents  {
+                    docID = (documentSnapshot?.documents[0].documentID)!
+                    print("DocID: \(docID)")
+                    //Updates profile image in firebase database
+                    self.db.collection("users").document(docID).updateData(["profile_image": profileImageURL]) { (error) in
+                        
+                        //If error occurs
+                        if error != nil {
+                        
+                        //Shows error message for now
+                            print("ERROR UPDATING PROFILE IMAGE:  \(String(describing: error?.localizedDescription))")
+                        }
+                        
+                        print("Photo successfully updated")
                     }
-    
-                    print("Photo successfully updated")
-                }
+              }
+                
             }
         })
     }
@@ -165,7 +176,7 @@ extension MyAccountViewController: UIImagePickerControllerDelegate, UINavigation
             if !UIImagePickerController.isSourceTypeAvailable(.camera) {
                 let alertController = UIAlertController(title: nil, message: "Device has no camera.", preferredStyle: .alert)
 
-                let okAction = UIAlertAction(title: "Alright", style: .default, handler: { (alert: UIAlertAction!) in
+                let okAction = UIAlertAction(title: "Understood!", style: .default, handler: { (alert: UIAlertAction!) in
                 })
 
                 alertController.addAction(okAction)
