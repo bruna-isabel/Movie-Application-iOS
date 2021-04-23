@@ -15,13 +15,12 @@ import FirebaseDatabase
 
 class MyAccountViewController: UIViewController {
 
-    @IBOutlet var firstNameLabel: UILabel!
-    @IBOutlet var lastNameLabel: UILabel!
     @IBOutlet var userImage: UIImageView!
     @IBOutlet var saveDetailsButton: UIButton!
     @IBOutlet var logoutButton: UIButton!
     
     var window: UIWindow!
+    var urlPic: String = ""
     
     //variables
     let db = Firestore.firestore()
@@ -31,6 +30,8 @@ class MyAccountViewController: UIViewController {
         if Auth.auth().currentUser?.uid == nil {
             logoutUser()
                 }
+        let urlImage = urlPic
+        self.downloadImage(from: urlImage)
     }
     
     @IBAction func uploadImageButton(_ sender: Any) {
@@ -101,8 +102,10 @@ class MyAccountViewController: UIViewController {
                     
                     let urlString = url.absoluteString
                     print("Download Url: \(urlString)")
+                    
                     //saves profileimageurl
                     self.saveProfile(profileImageURL: urlString)
+                    self.urlPic = urlString
                 }
             }
         }
@@ -133,11 +136,14 @@ class MyAccountViewController: UIViewController {
                         
                         //Shows error message for now
                             print("ERROR UPDATING PROFILE IMAGE:  \(String(describing: error?.localizedDescription))")
+                            return
                         }
                         
                         print("Photo successfully updated")
+                        }
+
                     }
-              }
+              
                 
             }
         })
@@ -146,9 +152,10 @@ class MyAccountViewController: UIViewController {
     func saveChanges() {
         
         //Saves Image in DB
-        guard let userImage = userImage.image else {return}
+        guard let image = userImage.image else {return}
+        userImage.image = image
         
-        self.uploadUserImage(userImage) { url in
+        self.uploadUserImage(image) { url in
             if url != nil {
                 print( "image Successfully upload to firebase")
             } else {
@@ -157,7 +164,28 @@ class MyAccountViewController: UIViewController {
             }
         }
     }
+
+    
+        func downloadImage(from url: String) {
+            
+            guard let imageURL = URL(string: url) else { return }
+            print(imageURL)
+
+            DispatchQueue.global().async {
+                guard let imageData = try? Data(contentsOf: imageURL) else { return }
+
+                let image = UIImage(data: imageData)
+                print(imageURL)
+                
+                DispatchQueue.main.async {
+                    self.userImage.image = image
+                }
+            }
+        
+                
+    }
 }
+
 
 
 extension MyAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
