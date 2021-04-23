@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         
         if emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
+            self.errorLabel.isHidden = false
             return "Please fill in all the fields."
         }
         
@@ -45,6 +46,7 @@ class LoginViewController: UIViewController {
         if error != nil {
     
             //Show error message
+            self.errorLabel.isHidden = false
             errorMessages(error!)
             
         } else {
@@ -57,6 +59,7 @@ class LoginViewController: UIViewController {
                 (result, error) in
                 
                 if error != nil {
+                    self.errorLabel.isHidden = false
                     self.errorLabel.text = error!.localizedDescription
                     self.errorLabel.alpha = 1
                     

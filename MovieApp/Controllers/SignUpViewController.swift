@@ -31,7 +31,7 @@ class SignUpViewController: UIViewController {
     
         if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ==  "" || emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
-            
+            self.errorLabel.isHidden = false
             return "Please fill in all the fields."
         }
         
@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
         
         //Checks if email is in the right format
         if Utilities().emailValidation(emailCleaned) == false {
-            
+            self.errorLabel.isHidden = false
             return "Your email is in the wrong format."
         }
         
@@ -53,7 +53,7 @@ class SignUpViewController: UIViewController {
         
         //Checks if password is in right format
         if Utilities().passwordValidation(passwordCleaned) == false {
-            
+            self.errorLabel.isHidden = false
             return "Your password should contain at least 8 characters, a special character and a number. Please try again"
         }
         
